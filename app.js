@@ -70,67 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("wedding_rsvps", JSON.stringify(entries));
     };
 
-    // RSVP Tablosunu Render Et
-    const renderRSVPTable = () => {
-        const entries = getRSVPEntries();
-        const tableBody = document.getElementById("rsvp-table-body");
-        
-        if (!tableBody) return;
 
-        if (entries.length === 0) {
-            tableBody.innerHTML = `
-                <tr class="empty-row">
-                    <td colspan="5">Kayıtlı RSVP yanıtı bulunmuyor. Formu doldurarak ekleme yapabilirsiniz.</td>
-                </tr>
-            `;
-            return;
-        }
-
-        tableBody.innerHTML = "";
-        
-        // Yeniden eskiye sıralama yapalım (en son gelen en üstte)
-        const sortedEntries = [...entries].reverse();
-
-        sortedEntries.forEach(entry => {
-            const tr = document.createElement("tr");
-            
-            // 4 seçeneğe göre badge sınıfı ve metnini belirleme
-            let badgeClass = "badge-success";
-            let badgeText = "Katılıyor";
-            
-            if (entry.status === "alone") {
-                badgeClass = "badge-success";
-                badgeText = "Katılıyor (Yalnız)";
-            } else if (entry.status === "couple") {
-                badgeClass = "badge-success";
-                badgeText = "Katılıyor (2 Kişi)";
-            } else if (entry.status === "not-sure") {
-                badgeClass = "badge-info";
-                badgeText = "Emin Değil";
-            } else if (entry.status === "cannot-attend") {
-                badgeClass = "badge-danger";
-                badgeText = "Katılamıyor";
-            }
-                
-            const formattedDate = new Date(entry.timestamp).toLocaleString("tr-TR", {
-                day: "numeric",
-                month: "short",
-                year: "numeric",
-                hour: "2-digit",
-                minute: "2-digit"
-            });
-
-            tr.innerHTML = `
-                <td style="font-weight: 500;">${escapeHTML(entry.fullName)}</td>
-                <td>${escapeHTML(entry.email || "-")}</td>
-                <td><span class="badge ${badgeClass}">${badgeText}</span></td>
-                <td style="max-width: 250px; white-space: normal; word-break: break-word;">${escapeHTML(entry.message || "-")}</td>
-                <td style="color: var(--text-muted); font-size: 0.8rem;">${formattedDate}</td>
-            `;
-            
-            tableBody.appendChild(tr);
-        });
-    };
 
     // HTML Enjeksiyonunu Önleme Yardımcı Fonksiyonu (Security/Sanitization)
     const escapeHTML = (str) => {
@@ -180,8 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .catch(err => console.error("Google Sheets hatası:", err));
             }
 
-            // Tabloyu Güncelle
-            renderRSVPTable();
+
 
             // Form Durumunu Değiştir (Formu gizle, başarı ekranını göster)
             rsvpForm.style.display = "none";
@@ -204,82 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-
-    // ==========================================================================
-    // 4. TEST / ADMIN PANELİ İÇİN EVENT LISTENERLAR
-    // ==========================================================================
-    const adminToggleBtn = document.getElementById("btn-toggle-admin");
-    const adminTableWrapper = document.getElementById("admin-table-wrapper");
-    const clearRsvpBtn = document.getElementById("btn-clear-rsvp");
-
-    if (adminToggleBtn && adminTableWrapper) {
-        adminToggleBtn.addEventListener("click", () => {
-            const isVisible = adminTableWrapper.style.display === "block";
-            
-            if (isVisible) {
-                adminTableWrapper.style.display = "none";
-                adminToggleBtn.classList.remove("active");
-            } else {
-                adminTableWrapper.style.display = "block";
-                adminToggleBtn.classList.add("active");
-                // Tabloyu yükle
-                renderRSVPTable();
-            }
-        });
-    }
-
-    if (clearRsvpBtn) {
-        clearRsvpBtn.addEventListener("click", () => {
-            if (confirm("Tüm RSVP veritabanı kayıtlarını silmek istediğinizden emin misiniz?")) {
-                localStorage.removeItem("wedding_rsvps");
-                renderRSVPTable();
-            }
-        });
-    }
-
-    // CSV/Excel Olarak Dışa Aktarma
-    const exportCsvBtn = document.getElementById("btn-export-csv");
-    if (exportCsvBtn) {
-        exportCsvBtn.addEventListener("click", () => {
-            const entries = getRSVPEntries();
-            if (entries.length === 0) {
-                alert("İndirilecek kayıt bulunmamaktadır.");
-                return;
-            }
-
-            // Türkçe karakterlerin Excel'de doğru açılması için BOM (Byte Order Mark) ekliyoruz
-            let csvContent = "\uFEFF";
-            csvContent += "Ad Soyad;E-posta;Katılım Durumu;Mesaj / Not;Tarih\n";
-
-            entries.forEach(entry => {
-                let statusText = "Katılmıyor";
-                if (entry.status === "alone") statusText = "Katılıyor (Yalnız)";
-                else if (entry.status === "couple") statusText = "Katılıyor (2 Kişi)";
-                else if (entry.status === "not-sure") statusText = "Emin Değil";
-
-                const formattedDate = new Date(entry.timestamp).toLocaleString("tr-TR");
-                
-                const name = entry.fullName.replace(/;/g, ",").replace(/"/g, '""');
-                const email = (entry.email || "").replace(/;/g, ",").replace(/"/g, '""');
-                const message = (entry.message || "").replace(/;/g, ",").replace(/\n/g, " ").replace(/"/g, '""');
-
-                csvContent += `"${name}";"${email}";"${statusText}";"${message}";"${formattedDate}"\n`;
-            });
-
-            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.setAttribute("href", url);
-            link.setAttribute("download", `rsvp_katilim_listesi_${new Date().toISOString().slice(0, 10)}.csv`);
-            link.style.visibility = "hidden";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
-    }
-
-    // Sayfa yüklenince ilk tablo render işlemini yapalım
-    renderRSVPTable();
 
 
     // ==========================================================================

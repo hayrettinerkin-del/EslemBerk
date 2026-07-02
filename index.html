@@ -230,43 +230,7 @@
         </div>
     </section>
 
-    <!-- ADMIN PANEL / RSVP LOGS (Strictly for testing and viewing submissions) -->
-    <section class="section admin-section" id="admin-panel">
-        <div class="container">
-            <button class="admin-toggle-btn" id="btn-toggle-admin">
-                <i class="fa-solid fa-database"></i> RSVP Yanıt Veritabanı (Test/Simülasyon) <i class="fa-solid fa-chevron-down chevron"></i>
-            </button>
-            
-            <div class="admin-content" id="admin-table-wrapper" style="display: none;">
-                <div class="admin-actions">
-                    <p class="admin-info"><i class="fa-solid fa-info-circle"></i> Gönderilen RSVP yanıtları tarayıcı LocalStorage belleğinde saklanır.</p>
-                    <div class="admin-buttons">
-                        <button class="btn btn-secondary btn-xs" id="btn-export-csv" style="margin-right: 10px;"><i class="fa-solid fa-file-csv"></i> Listeyi Excel (CSV) İndir</button>
-                        <button class="btn btn-danger btn-xs" id="btn-clear-rsvp"><i class="fa-solid fa-trash-can"></i> Belleği Temizle</button>
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table class="rsvp-table" id="rsvp-table">
-                        <thead>
-                            <tr>
-                                <th>Ad Soyad</th>
-                                <th>E-posta</th>
-                                <th>Katılım Durumu</th>
-                                <th>Mesaj / Not</th>
-                                <th>Tarih</th>
-                            </tr>
-                        </thead>
-                        <tbody id="rsvp-table-body">
-                            <!-- Rows will be dynamically loaded via JS -->
-                            <tr class="empty-row">
-                                <td colspan="5">Kayıtlı RSVP yanıtı bulunmuyor. Formu doldurarak ekleme yapabilirsiniz.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -281,6 +245,6 @@
     </footer>
 
     <!-- Custom JS -->
-    <script src="app.js?v=4"></script>
+    <script src="app.js?v=5"></script>
 </body>
 </html>
