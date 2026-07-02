@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Google Sheets Entegrasyon URL'si (Boş bırakılırsa sadece LocalStorage'a kaydeder)
-    const GOOGLE_SHEET_URL = ""; 
+    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwWQgLfFd7pLvgzOFE1ncj0TP-3796UX2Tbi2ReP2RNwl0WISKpBJwXv9QAewLTNBlvg/exec"; 
 
     // ==========================================================================
     // 1. GERİ SAYIM SAYACI (COUNTDOWN TIMER)
