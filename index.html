@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eslem & Berk Düğün Davetiyesi - 12 Eylül 2026 Cumartesi günü gerçekleşecek düğün törenimize davetlisiniz.">
+    <title>Eslem & Berk - Evleniyoruz!</title>
+    
+    <!-- Google Fonts: Elegant Serif (Cormorant Garamond) & Modern Sans-Serif (Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Elegant UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in-up">
+            <span class="hero-tagline">Düğün Davetiyesi</span>
+            <h1 class="couple-names">Eslem & Berk</h1>
+            <p class="hero-subtitle">Evleniyoruz</p>
+            <div class="hero-divider">
+                <span class="line"></span>
+                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                <span class="line"></span>
+            </div>
+            <p class="hero-date">12 EYLÜL 2026, CUMARTESİ</p>
+            
+            <!-- COUNTDOWN TIMER -->
+            <div class="countdown-wrapper" id="wedding-countdown">
+                <div class="countdown-box">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Gün</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Saat</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Dakika</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Saniye</span>
+                </div>
+            </div>
+            
+            <div class="hero-actions">
+                <a href="#rsvp" class="btn btn-primary" id="btn-rsvp-hero">RSVP (Katılım Durumu)</a>
+                <a href="#venue" class="btn btn-secondary" id="btn-venue-hero">Mekan & Konum</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#story"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+    </header>
+
+    <!-- WELCOME / STORY SECTION -->
+    <section class="section story-section" id="story">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Birlikteliğe Doğru</h2>
+                <div class="accent-line"></div>
+            </div>
+            <p class="story-text">
+                "Hayatımızın en anlamlı gününde, sevgimizi ve mutluluğumuzu <br> 
+                siz değerli dostlarımızla paylaşmaktan onur duyarız."
+            </p>
+            <div class="story-names">
+                <span>Eslem</span>
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Berk</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENUE & DETAILS SECTION -->
+    <section class="section venue-section" id="venue">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Mekan & Konum</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="venue-grid">
+                <!-- Info Card -->
+                <div class="venue-card info-card">
+                    <div class="card-icon">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h3>Spicy İstinye</h3>
+                    <p class="venue-datetime">
+                        <span class="date-item"><i class="fa-regular fa-calendar-days"></i> 12 Eylül 2026, Cumartesi</span>
+                        <span class="time-item"><i class="fa-regular fa-clock"></i> 13:00</span>
+                    </p>
+                    <p class="venue-address">
+                        <i class="fa-solid fa-location-dot"></i> İstinye, Poligon Cd. No:1, 34460 Sarıyer/İstanbul
+                    </p>
+                    <div class="card-actions">
+                        <a href="https://maps.google.com/?q=Spicy+İstinye" target="_blank" class="btn btn-secondary btn-sm" id="btn-directions">
+                            <i class="fa-solid fa-map-location-dot"></i> Yol Tarifi Al
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Map Card -->
+                <div class="venue-card map-card">
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.1432243296185!2d29.023249076580974!3d41.11053791249826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5c3dc5bb7c7%3A0xc6cb1c7df5dbe2d6!2sSpicy%20%C4%B0stinye!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Spicy İstinye Haritası">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP FORM SECTION -->
+    <section class="section rsvp-section" id="rsvp">
+        <div class="container scroll-reveal">
+            <div class="section-header">
+                <h2>Lütfen Katılım Durumunuzu Bildirin</h2>
+                <p class="section-subtitle">Bu özel günü planlamamıza yardımcı olmak için katılım detaylarınızı giriniz.</p>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="rsvp-card">
+                <!-- Success State (Hidden by default) -->
+                <div class="rsvp-success-state" id="rsvp-success" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3>Yanıtınız Başarıyla Kaydedildi!</h3>
+                    <p>Bizim için çok değerlisiniz, yanıtınız kaydedildi.</p>
+                    <button class="btn btn-secondary btn-sm" id="btn-rsvp-reset">Yeni Yanıt Gönder</button>
+                </div>
+
+                <!-- Form State -->
+                <form id="wedding-rsvp-form">
+                    <div class="form-row">
+                        <!-- Full Name -->
+                        <div class="form-group col-12">
+                            <label for="fullName">Adınız Soyadınız <span>*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-user input-icon"></i>
+                                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Örn. Ahmet Yılmaz" required autocomplete="name">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <!-- Email -->
+                        <div class="form-group col-12">
+                            <label for="email">E-posta Adresiniz</label>
+                            <div class="input-wrapper">
+                                <i class="fa-regular fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" autocomplete="email">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Attendance Radio Selection -->
+                    <div class="form-group">
+                        <label>Katılım Durumunuz <span>*</span></label>
+                        <div class="attendance-options">
+                            <label class="attendance-btn">
+                                <input type="radio" name="attendance" value="alone" required>
+                                <span class="attendance-btn-content">
+                                    <i class="fa-solid fa-user option-icon"></i>
+                                    <span class="option-title">Yalnız Katılıyorum</span>
+                                    <span class="option-subtitle">Attending Alone</span>
+                                </span>
+                            </label>
+                            
+                            <label class="attendance-btn">
+                                <input type="radio" name="attendance" value="couple">
+                                <span class="attendance-btn-content">
+                                    <i class="fa-solid fa-users option-icon"></i>
+                                    <span class="option-title">2 Kişi Katılıyoruz</span>
+                                    <span class="option-subtitle">Attending as 2</span>
+                                </span>
+                            </label>
+                            
+                            <label class="attendance-btn">
+                                <input type="radio" name="attendance" value="not-sure">
+                                <span class="attendance-btn-content">
+                                    <i class="fa-regular fa-clock option-icon"></i>
+                                    <span class="option-title">Henüz Emin Değilim</span>
+                                    <span class="option-subtitle">Not Sure Yet</span>
+                                </span>
+                            </label>
+                            
+                            <label class="attendance-btn">
+                                <input type="radio" name="attendance" value="cannot-attend">
+                                <span class="attendance-btn-content">
+                                    <i class="fa-solid fa-calendar-xmark option-icon"></i>
+                                    <span class="option-title">Katılamıyorum</span>
+                                    <span class="option-subtitle">Cannot Attend</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message">Çifte Notunuz (Mesaj - İsteğe Bağlı)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-comment input-icon textarea-icon"></i>
+                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tebrikleriniz veya varsa özel talepleriniz..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block btn-submit" id="submit-rsvp">
+                        <span>Yanıtı Gönder</span> <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMIN PANEL / RSVP LOGS (Strictly for testing and viewing submissions) -->
+    <section class="section admin-section" id="admin-panel">
+        <div class="container">
+            <button class="admin-toggle-btn" id="btn-toggle-admin">
+                <i class="fa-solid fa-database"></i> RSVP Yanıt Veritabanı (Test/Simülasyon) <i class="fa-solid fa-chevron-down chevron"></i>
+            </button>
+            
+            <div class="admin-content" id="admin-table-wrapper" style="display: none;">
+                <div class="admin-actions">
+                    <p class="admin-info"><i class="fa-solid fa-info-circle"></i> Gönderilen RSVP yanıtları tarayıcı LocalStorage belleğinde saklanır.</p>
+                    <div class="admin-buttons">
+                        <button class="btn btn-secondary btn-xs" id="btn-export-csv" style="margin-right: 10px;"><i class="fa-solid fa-file-csv"></i> Listeyi Excel (CSV) İndir</button>
+                        <button class="btn btn-danger btn-xs" id="btn-clear-rsvp"><i class="fa-solid fa-trash-can"></i> Belleği Temizle</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="rsvp-table" id="rsvp-table">
+                        <thead>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>E-posta</th>
+                                <th>Katılım Durumu</th>
+                                <th>Mesaj / Not</th>
+                                <th>Tarih</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rsvp-table-body">
+                            <!-- Rows will be dynamically loaded via JS -->
+                            <tr class="empty-row">
+                                <td colspan="5">Kayıtlı RSVP yanıtı bulunmuyor. Formu doldurarak ekleme yapabilirsiniz.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-names">Eslem & Berk</p>
+            <p class="footer-date">12 EYLÜL 2026</p>
+            <div class="footer-decor">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+            <p class="footer-thankyou">Mutluluğumuzu paylaştığınız için teşekkür ederiz.</p>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="app.js?v=4"></script>
+</body>
+</html>
