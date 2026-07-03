@@ -376,6 +376,37 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   DAVETİYE GÖRSELİ BÖLÜMÜ
+   ========================================================================== */
+.invitation-section {
+    background-color: var(--bg-cream);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.invitation-card-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(50, 65, 50, 0.1);
+    overflow: hidden;
+    background-color: var(--bg-white);
+    border: 1px solid rgba(74, 85, 74, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.invitation-card-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(50, 65, 50, 0.15);
+}
+
+.invitation-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
    MEKAN VE KONUM BÖLÜMÜ
    ========================================================================== */
 .venue-section {
